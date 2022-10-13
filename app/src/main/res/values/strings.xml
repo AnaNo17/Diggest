@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">splashAna</string>
+    <string name="usuario_label">Usuario</string>
+    <string name="contra_label">Contraseña</string>
+    <string name="oklabel">Accesar</string>
+    <string name="olvidolabel">Olvide Contraseña</string>
+    <string name="registrolabel">Registro</string>
+</resources>
