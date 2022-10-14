@@ -11,12 +11,15 @@ public class MyInfo implements Serializable {
     private Boolean TUsuario;
     public MyInfo() {
     }
+
     public String getUsuario() {
         return usuario;
     }
     public void setUsuario(String usuario) {
         this.usuario = usuario;
     }
+
+
     public String getPassword() {
         return password;
     }

@@ -8,10 +8,15 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.example.anasplash.Json.MyInfo;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+
+import org.w3c.dom.Text;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -29,14 +34,21 @@ public class Login extends AppCompatActivity {
     private List<MyInfo> list;
     public static String TAG = "mensaje";
     String json = null;
-    public static String usr,pswd;
+    public static String usr;
+
+    //modificacion de validar
+    private EditText pswds, usuario;
+    private TextView txtpas, txtusu;
+
     private static final char[] HEX_ARRAY = "0123456789ABCDEF".toCharArray();
+    byte []res = null;
+    String pass;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        byte []res = null;
+
 
         registro = (Button)findViewById(R.id.btnRegistro);
         registro.setOnClickListener(new View.OnClickListener() {
@@ -47,22 +59,37 @@ public class Login extends AppCompatActivity {
             }
         });
         Button button2 = findViewById(R.id.btnAcceso);
-        EditText usuario = findViewById(R.id.userNameId);
-        EditText pswds = findViewById(R.id.passwordId);
+        usuario = findViewById(R.id.userNameId);
+
+        //modificacion validar
+        txtpas = findViewById(R.id.passwordId);
+        txtusu = findViewById(R.id.userNameId);
+
+        pswds = findViewById(R.id.passwordId);
         Read();
         json2List(json);
-        res = createSha1(String.valueOf(pswds));
-        if( res != null ) {
-            Log.d(TAG, String.format("%s", bytesToHex(res)));
-        }
+
 
 
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                usr = String.valueOf(usuario.getText());
-                pswd =  String.valueOf(pswds.getText());
-                acceso();
+                try{
+                    if(validar()){
+                        usr = String.valueOf(usuario.getText());
+                        res = createSha1(String.valueOf(pswds.getText()));
+                        if( res != null ) {
+                            Log.d(TAG, String.format("%s", bytesToHex(res)));
+                            pass = bytesToHex(res);
+                        }
+                        acceso();
+                    }else{
+                        Toast.makeText(getApplicationContext(), "Por favor complete todos los campos", Toast.LENGTH_LONG).show();
+                    }
+                }catch (Exception e){
+                    Toast.makeText(getApplicationContext(), "Se ha producido un error al intentar logearte", Toast.LENGTH_LONG).show();
+                }
+
             }
         }); //hasta aqui la funcionalidad de botones
     }
@@ -122,7 +149,7 @@ public class Login extends AppCompatActivity {
     public void acceso(){
         int i=0;
         for(MyInfo myInfo : list){
-            if(myInfo.getUsuario().equals(usr)&&myInfo.getPassword().equals(pswd)){
+            if(myInfo.getUsuario().equals(usr) && myInfo.getPassword().equals(pass)){
                 Intent intent = new Intent(Login.this, Principal.class);
                 startActivity(intent);
                 i=1;
@@ -130,6 +157,7 @@ public class Login extends AppCompatActivity {
         }
         if(i==0){
             Toast.makeText(getApplicationContext(), "El usuario o contraseña son incorrectos", Toast.LENGTH_LONG).show();
+            Log.d(TAG, pass);
         }
     }
     public byte[] createSha1( String text )
@@ -164,5 +192,25 @@ public class Login extends AppCompatActivity {
             hexChars[j * 2 + 1] = HEX_ARRAY[v & 0x0F];
         }
         return new String(hexChars);
+
+    }//modificacion validar
+    private boolean validar (){
+        boolean retorno = true;
+        String usuario1, password;
+        usuario1 = usuario.getText().toString();
+        password = pswds.getText().toString();
+        if(usuario1.isEmpty()){
+            txtusu.setError("Ingrese su usuario");
+            retorno = false;
+        }else{
+            txtusu.setError("Ingrese su usuario");
+        }
+        if(password.isEmpty()){
+            txtpas.setError("Ingrese su contraseña");
+            retorno = false;
+        }else{
+            txtpas.setError("Ingrese su contraseña");
+        }
+        return retorno;
     }
 }

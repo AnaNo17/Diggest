@@ -26,6 +26,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class Registro extends AppCompatActivity implements View.OnClickListener {
     Switch SwitchM;
     EditText NumeroMas;
@@ -34,6 +35,8 @@ public class Registro extends AppCompatActivity implements View.OnClickListener 
     private static final String TAG = "MainActivity";
     public static final String archivo = "archivo.json";
     private static final char[] HEX_ARRAY = "0123456789ABCDEF".toCharArray();
+    byte []res = null;
+    String pass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,9 +44,6 @@ public class Registro extends AppCompatActivity implements View.OnClickListener 
         setContentView(R.layout.activity_registro);
 
         SwitchM= (Switch) findViewById(R.id.idswitch);
-
-        byte []res = null;
-
 
         NumeroMas = (EditText) findViewById(R.id.NumeroM);
         Regresar = (Button)findViewById(R.id.button5);
@@ -62,12 +62,6 @@ public class Registro extends AppCompatActivity implements View.OnClickListener 
         RadioButton r2 = findViewById(R.id.radioBHombre);
         CheckBox tipo = findViewById(R.id.checkBoxEsTra);
         CheckBox tipo2 = findViewById(R.id.checkBoxFam);
-        String pass = null;
-        res = createSha1(String.valueOf(pswd));
-        if( res != null ) {
-            Log.d(TAG, String.format("%s", bytesToHex(res)));
-            pass= String.format(bytesToHex(res));
-        }
 
         Regresar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,12 +69,21 @@ public class Registro extends AppCompatActivity implements View.OnClickListener 
                 Intent registro = new Intent(Registro.this, Login.class);
                 startActivity(registro);
             }
-        }); button4.setOnClickListener(new View.OnClickListener() {
+        });
+
+        button4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                res = createSha1(String.valueOf(pswd.getText()));
+                if( res != null ) {
+                    Log.d(TAG, String.format("%s", bytesToHex(res)));
+                    pass = bytesToHex(res);
+                }
+
                 MyInfo info= new MyInfo();
                 info.setUsuario(String.valueOf(usuario.getText()));
-                //info.setPassword(pass);
+                info.setPassword(pass);
                 info.setCorreo(String.valueOf(mail.getText()));
                 List2Json(info,list);
             }
@@ -151,11 +154,15 @@ public class Registro extends AppCompatActivity implements View.OnClickListener 
     public void onClick(View view)
     {
         if(view.getId()==R.id.idswitch){
+            Log.d(TAG, "Esta entrando al if");
+
             if (SwitchM.isChecked()){
+                Log.d(TAG, "Esta entrando al true");
                 NumeroMas.setText("Numero de Mascotas");
                 NumeroMas.setEnabled(true);
             }
             else{
+                Log.d(TAG, "Esta entrando al false");
                 NumeroMas.setText("Campo desabilitado");
                 NumeroMas.setEnabled(false);
             }
