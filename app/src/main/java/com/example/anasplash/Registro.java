@@ -97,6 +97,10 @@ public class Registro extends AppCompatActivity implements View.OnClickListener 
                     tipoU = "Tiene Familia";
                 }else{
                     tipoU = "Estudiante";
+                }if(SwitchM.isChecked()){
+                    mascotas = "Vive con mascotas";
+                }else{
+                    mascotas = "No tiene mascotas";
                 }
 
                 if (usuario.getText().equals("") || pswd.getText().equals("") || mail.getText().equals("")) {
@@ -187,15 +191,7 @@ public class Registro extends AppCompatActivity implements View.OnClickListener 
     @Override
     public void onClick(View view)
     {
-       if(view.getId()==R.id.idswitch){
-           if(SwitchM.isChecked()){
-               numeroMascotas.setText("Tiene mascotas");
-               mascotas = "Vive con mascotas";
-           }else{
-               numeroMascotas.setText("No tiene mascotas");
-               mascotas = "Vive sin mascotas";
-           }
-        }
+
     }
     public byte[] createSha1( String text )
     {
