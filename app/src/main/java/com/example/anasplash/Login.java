@@ -31,6 +31,8 @@ import java.util.List;
 
 public class Login extends AppCompatActivity {
     Button registro;
+    Button OlvidePass;
+
     private List<MyInfo> list;
     public static String TAG = "mensaje";
     String json = null;
@@ -48,6 +50,14 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        OlvidePass= (Button)findViewById(R.id.button3);
+        OlvidePass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent OlvidePass = new Intent(Login.this, OlvideContra.class);
+                startActivity(OlvidePass);
+            }
+        });
 
 
         registro = (Button)findViewById(R.id.btnRegistro);
@@ -77,7 +87,7 @@ public class Login extends AppCompatActivity {
                 try{
                     if(validar()){
                         usr = String.valueOf(usuario.getText());
-                        res = createSha1(String.valueOf(pswds.getText()));
+                        res = createSha1(String.valueOf(pswds.getText())+"ola");
                         if( res != null ) {
                             Log.d(TAG, String.format("%s", bytesToHex(res)));
                             pass = bytesToHex(res);
@@ -203,13 +213,13 @@ public class Login extends AppCompatActivity {
             txtusu.setError("Ingrese su usuario");
             retorno = false;
         }else{
-            txtusu.setError("Ingrese su usuario");
+            retorno = true;
         }
         if(password.isEmpty()){
             txtpas.setError("Ingrese su contraseña");
             retorno = false;
         }else{
-            txtpas.setError("Ingrese su contraseña");
+            retorno = true;
         }
         return retorno;
     }

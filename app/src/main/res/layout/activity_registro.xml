@@ -11,15 +11,15 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="28dp"
         android:fontFamily="sans-serif-black"
         android:foregroundTint="#FFF1F1"
         android:text="Bienvenido al Registro"
         android:textColor="#733248"
         android:textColorHighlight="#3F51B5"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.534"
+        app:layout_constraintHorizontal_bias="0.848"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -30,6 +30,7 @@
         android:layout_marginTop="28dp"
         android:fontFamily="sans-serif-black"
         android:text="Nombre de Usuario"
+        android:textColor="#733248"
         app:layout_constraintBottom_toTopOf="@+id/textView6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.054"
@@ -41,11 +42,12 @@
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="224dp"
+        android:layout_marginTop="180dp"
         android:fontFamily="sans-serif-black"
         android:text="Contraseña"
+        android:textColor="#733248"
         app:layout_constraintEnd_toEndOf="@+id/textView5"
-        app:layout_constraintHorizontal_bias="0.703"
+        app:layout_constraintHorizontal_bias="0.676"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -56,6 +58,7 @@
         android:layout_marginTop="39dp"
         android:fontFamily="sans-serif-black"
         android:text="Correo"
+        android:textColor="#733248"
         app:layout_constraintEnd_toEndOf="@+id/textView5"
         app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toStartOf="parent"
@@ -67,12 +70,13 @@
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-black"
         android:text="Edad"
+        android:textColor="#733248"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/textView5"
-        app:layout_constraintHorizontal_bias="0.519"
+        app:layout_constraintHorizontal_bias="0.523"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView7"
-        app:layout_constraintVertical_bias="0.234" />
+        app:layout_constraintVertical_bias="0.193" />
 
     <TextView
         android:id="@+id/textView10"
@@ -80,12 +84,13 @@
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-black"
         android:text="Sexo"
+        android:textColor="#733248"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/textView5"
-        app:layout_constraintHorizontal_bias="0.533"
+        app:layout_constraintHorizontal_bias="0.532"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView7"
-        app:layout_constraintVertical_bias="0.118" />
+        app:layout_constraintVertical_bias="0.072" />
 
     <TextView
         android:id="@+id/textView8"
@@ -93,26 +98,57 @@
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-black"
         android:text="Tipo de Usuario"
+        android:textColor="#733248"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/textView5"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.71"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView7"
-        app:layout_constraintVertical_bias="0.393" />
+        app:layout_constraintVertical_bias="0.309" />
 
     <TextView
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="61dp"
         android:fontFamily="sans-serif-black"
         android:text="Mascotas"
+        android:textColor="#733248"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/textView5"
-        app:layout_constraintHorizontal_bias="0.733"
+        app:layout_constraintHorizontal_bias="0.727"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView8"
+        app:layout_constraintVertical_bias="0.201" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="61dp"
+        android:fontFamily="sans-serif-black"
+        android:text="Fecha de registro"
+        android:textColor="#733248"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/textView5"
+        app:layout_constraintHorizontal_bias="0.931"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView8"
-        app:layout_constraintVertical_bias="0.047" />
+        app:layout_constraintVertical_bias="0.192" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="61dp"
+        android:fontFamily="sans-serif-black"
+        android:text="Numero tel."
+        android:textColor="#733248"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/textView5"
+        app:layout_constraintHorizontal_bias="0.687"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView8"
+        app:layout_constraintVertical_bias="0.389" />
 
     <EditText
         android:id="@+id/TxtUsu"
@@ -130,11 +166,11 @@
         android:id="@+id/TxtCorreo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="148dp"
+        android:layout_marginTop="132dp"
         android:ems="10"
         android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.52"
+        app:layout_constraintHorizontal_bias="0.663"
         app:layout_constraintStart_toEndOf="@+id/textView7"
         app:layout_constraintTop_toTopOf="@+id/TxtUsu" />
 
@@ -142,29 +178,29 @@
         android:id="@+id/checkBoxEsTra"
         android:layout_width="119dp"
         android:layout_height="53dp"
-        android:layout_marginTop="150dp"
         android:fontFamily="sans-serif-black"
         android:text="Estudiante/Trabajador"
         app:layout_constraintBottom_toTopOf="@+id/button5"
         app:layout_constraintEnd_toStartOf="@+id/checkBoxFam"
-        app:layout_constraintHorizontal_bias="0.604"
+        app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toEndOf="@+id/textView8"
-        app:layout_constraintTop_toBottomOf="@+id/TxtCorreo"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:layout_constraintVertical_bias="0.642" />
 
     <CheckBox
         android:id="@+id/checkBoxFam"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="132dp"
         android:fontFamily="sans-serif-black"
         android:text="Familia"
-        app:layout_constraintBottom_toTopOf="@+id/NumeroM"
+
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.918"
+        app:layout_constraintHorizontal_bias="0.897"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TxtCorreo"
-        app:layout_constraintVertical_bias="0.296" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.462" />
 
     <EditText
         android:id="@+id/TxtContra"
@@ -186,100 +222,93 @@
         android:layout_marginBottom="28dp"
         android:backgroundTint="#733248"
         android:text="Inicio de Sesion"
+        android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.89"
+        app:layout_constraintHorizontal_bias="0.849"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioBHombre"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="@+id/checkBoxFam"
+        app:layout_constraintVertical_bias="0.891" />
 
     <Button
         android:id="@+id/button4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="28dp"
+        android:layout_marginBottom="52dp"
         android:backgroundTint="#733248"
         android:text="Terminar registro"
+        android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.073"
+        app:layout_constraintHorizontal_bias="0.135"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <RadioButton
-        android:id="@+id/radioBMujer"
-        android:layout_width="81dp"
-        android:layout_height="37dp"
-        android:layout_marginTop="32dp"
-        android:fontFamily="sans-serif-black"
-        android:text="Mujer"
+    <RadioGroup
+        android:layout_width="132dp"
+        android:layout_height="107dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.806"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TxtCorreo"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.381">
 
-    <RadioButton
-        android:id="@+id/radioBHombre"
-        android:layout_width="102dp"
-        android:layout_height="38dp"
-        android:layout_marginTop="32dp"
-        android:fontFamily="sans-serif-black"
-        android:text="Hombre"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.444"
-        app:layout_constraintStart_toEndOf="@+id/radioBMujer"
-        app:layout_constraintTop_toBottomOf="@+id/TxtCorreo" />
+        <RadioButton
+            android:id="@+id/radioBHombre"
+            android:layout_width="101dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="24dp"
+            android:fontFamily="sans-serif-black"
+            android:text="Hombre" />
+
+        <RadioButton
+            android:id="@+id/radioBMujer"
+            android:layout_width="91dp"
+            android:layout_height="35dp"
+            android:fontFamily="sans-serif-black"
+            android:text="Mujer" />
+
+    </RadioGroup>
 
     <Switch
         android:id="@+id/idswitch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
         android:onClick="onclick"
-        app:layout_constraintBottom_toTopOf="@+id/NumeroM"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.684"
+        android:shadowColor="#673AB7"
 
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.682"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBoxEsTra" />
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxEsTra"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textView13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
         android:fontFamily="sans-serif-black"
         android:text="Si"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.421"
+        app:layout_constraintHorizontal_bias="0.475"
         app:layout_constraintStart_toEndOf="@+id/idswitch"
-        app:layout_constraintTop_toBottomOf="@+id/checkBoxFam" />
+        app:layout_constraintTop_toTopOf="@+id/TxtEdad"
+        app:layout_constraintVertical_bias="0.35" />
 
     <TextView
         android:id="@+id/textView14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="28dp"
         android:fontFamily="sans-serif-black"
         android:text="No"
         app:layout_constraintEnd_toStartOf="@+id/idswitch"
-        app:layout_constraintHorizontal_bias="0.684"
+        app:layout_constraintHorizontal_bias="0.629"
         app:layout_constraintStart_toEndOf="@+id/textView9"
         app:layout_constraintTop_toBottomOf="@+id/checkBoxEsTra" />
-
-    <EditText
-        android:id="@+id/NumeroM"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:ems="10"
-        android:hint="Campo Desabilitado"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.825"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBoxEsTra"
-        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/TxtEdad"
@@ -290,9 +319,47 @@
         android:inputType="number"
         app:layout_constraintBottom_toTopOf="@+id/checkBoxEsTra"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.48"
-        app:layout_constraintStart_toEndOf="@+id/textView11"
+        app:layout_constraintHorizontal_bias="0.702"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TxtCorreo"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.831" />
+
+    <EditText
+        android:id="@+id/editTextDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="date"
+        app:layout_constraintBottom_toTopOf="@+id/button5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.835"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TxtEdad"
+        app:layout_constraintVertical_bias="0.581" />
+
+    <EditText
+        android:id="@+id/editTextPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="124dp"
+        android:ems="10"
+        android:inputType="phone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.584"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/editTextDate"
+        app:layout_constraintVertical_bias="0.259" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="109dp"
+        android:layout_height="69dp"
+        android:layout_marginTop="28dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.086"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/login" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

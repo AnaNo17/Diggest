@@ -7,8 +7,65 @@ public class MyInfo implements Serializable {
     private String password;
     private String correo;
     private String edad;
-    private Boolean sexo;
-    private Boolean TUsuario;
+    private String mascotas;
+
+    private String getMascotas() {
+        return mascotas;
+    }
+
+    public void setMascotas(String mascotas) {
+        this.mascotas = mascotas;
+    }
+
+    public String getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
+
+    private String fecha;
+
+    public String getNum() {
+        return num;
+    }
+
+    public void setNum(String num) {
+        this.num = num;
+    }
+
+    private String  num;
+
+    public String getEdad() {
+        return edad;
+    }
+
+    public void setEdad(String edad) {
+        this.edad = edad;
+    }
+
+
+    public String getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
+    }
+
+    private String sexo;
+
+    public String getTUsuario() {
+        return TUsuario;
+    }
+
+    public void setTUsuario(String TUsuario) {
+        this.TUsuario = TUsuario;
+    }
+
+    private String TUsuario;
+
     public MyInfo() {
     }
 
@@ -38,18 +95,9 @@ public class MyInfo implements Serializable {
     public void setCorreo(String correo) {
         this.correo = correo;
     }
-    public Boolean getSexo() {
-        return sexo;
-    }
-    public void setSexo(Boolean sexo) {
-        this.sexo = sexo;
-    }
-    public Boolean getTUsuario() {
-        return TUsuario;
-    }
-    public void setTUsuario(Boolean TUsuario) {
-        this.TUsuario = TUsuario;
-    }
+
+
+
 }
 
 

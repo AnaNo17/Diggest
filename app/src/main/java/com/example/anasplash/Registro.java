@@ -11,6 +11,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.anasplash.Json.MyInfo;
@@ -24,44 +25,53 @@ import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 
 public class Registro extends AppCompatActivity implements View.OnClickListener {
-    Switch SwitchM;
+
     EditText NumeroMas;
-    Button Regresar;
-    Button button4;
+    Button Regresar, button4;
+    String sexo, nMas;
+    TextView numeroMascotas;
+    Switch SwitchM;
+    CheckBox Faml;
+    String pass, mascotas;
+
     private static final String TAG = "MainActivity";
     public static final String archivo = "archivo.json";
     private static final char[] HEX_ARRAY = "0123456789ABCDEF".toCharArray();
     byte []res = null;
-    String pass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro);
 
-        SwitchM= (Switch) findViewById(R.id.idswitch);
-
-        NumeroMas = (EditText) findViewById(R.id.NumeroM);
-        Regresar = (Button)findViewById(R.id.button5);
+        Regresar = (Button) findViewById(R.id.button5);
         setContentView(R.layout.activity_registro);
         button4 = findViewById(R.id.button4);
         Button button4 = findViewById(R.id.button4);
-        List<MyInfo> list =new ArrayList<MyInfo>();
+        List<MyInfo> list = new ArrayList<MyInfo>();
         Regresar = findViewById(R.id.button5);
         Button button2 = findViewById(R.id.button5);
+
+        SwitchM= (Switch) findViewById(R.id.idswitch);
+        numeroMascotas = (TextView)findViewById(R.id.textView13);
+
+        CheckBox Faml = findViewById(R.id.checkBoxFam);
+
         EditText usuario = findViewById(R.id.TxtUsu);
         EditText pswd = findViewById(R.id.TxtContra);
-
         EditText mail = findViewById(R.id.TxtCorreo);
         EditText edad = findViewById(R.id.TxtEdad);
-        RadioButton r1 = findViewById(R.id.radioBMujer);
-        RadioButton r2 = findViewById(R.id.radioBHombre);
-        CheckBox tipo = findViewById(R.id.checkBoxEsTra);
-        CheckBox tipo2 = findViewById(R.id.checkBoxFam);
+
+        //cosa para mandar datos al json
+        EditText fechaR = findViewById(R.id.editTextDate);
+        EditText numeroTel = findViewById(R.id.editTextPhone);
+
+        RadioButton sexoB = findViewById(R.id.radioBMujer);
 
         Regresar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,29 +80,53 @@ public class Registro extends AppCompatActivity implements View.OnClickListener 
                 startActivity(registro);
             }
         });
-
+        //boton 4 es el de terminar registro
         button4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                res = createSha1(String.valueOf(pswd.getText()));
-                if( res != null ) {
-                    Log.d(TAG, String.format("%s", bytesToHex(res)));
-                    pass = bytesToHex(res);
+                if (sexoB.isChecked()){
+                    sexo = "Femenino";
+                    //Toast.makeText(getApplicationContext(), sexo, Toast.LENGTH_LONG).show();
+                }else{
+                    sexo = "Masculino";
+                }
+                boolean estadoCb = Faml.isChecked();
+                String tipoU = null;
+                if(estadoCb==true){
+                    tipoU = "Tiene Familia";
+                }else{
+                    tipoU = "Estudiante";
                 }
 
-                MyInfo info= new MyInfo();
-                info.setUsuario(String.valueOf(usuario.getText()));
-                info.setPassword(pass);
-                info.setCorreo(String.valueOf(mail.getText()));
-                List2Json(info,list);
-            }
-        }); SwitchM.setOnClickListener(this);
+                if (usuario.getText().equals("") || pswd.getText().equals("") || mail.getText().equals("")) {
+                    Toast.makeText(getApplicationContext(), "Por favor complete todos los campos", Toast.LENGTH_LONG).show();
+
+                } else {
+                    res = createSha1(String.valueOf(pswd.getText()) + "ola");
+                    if (res != null) {
+                        Log.d(TAG, String.format("%s", bytesToHex(res)));
+                        pass = bytesToHex(res);
+                    }
+                    MyInfo info = new MyInfo();
+                    info.setUsuario(String.valueOf(usuario.getText()));
+                    info.setPassword(pass);
+                    info.setCorreo(String.valueOf(mail.getText()));
+
+                    //modificacion
+                    info.setFecha(String.valueOf(fechaR.getText()));
+                    info.setNum(String.valueOf(numeroTel.getText()));
+                    info.setSexo(String.valueOf(sexoB.getText()));
+                    info.setTUsuario(tipoU);
+                    info.setMascotas(mascotas);
+
+                    List2Json(info, list);
+                     }
+                }
+        });
     }
 
     public void onclick(View view) {
-
-
     }
     public void Objet2Json(MyInfo info){
         Gson gson =null;
@@ -153,21 +187,15 @@ public class Registro extends AppCompatActivity implements View.OnClickListener 
     @Override
     public void onClick(View view)
     {
-        if(view.getId()==R.id.idswitch){
-            Log.d(TAG, "Esta entrando al if");
-
-            if (SwitchM.isChecked()){
-                Log.d(TAG, "Esta entrando al true");
-                NumeroMas.setText("Numero de Mascotas");
-                NumeroMas.setEnabled(true);
-            }
-            else{
-                Log.d(TAG, "Esta entrando al false");
-                NumeroMas.setText("Campo desabilitado");
-                NumeroMas.setEnabled(false);
-            }
+       if(view.getId()==R.id.idswitch){
+           if(SwitchM.isChecked()){
+               numeroMascotas.setText("Tiene mascotas");
+               mascotas = "Vive con mascotas";
+           }else{
+               numeroMascotas.setText("No tiene mascotas");
+               mascotas = "Vive sin mascotas";
+           }
         }
-
     }
     public byte[] createSha1( String text )
     {
@@ -202,4 +230,35 @@ public class Registro extends AppCompatActivity implements View.OnClickListener 
         }
         return new String(hexChars);
     }
+
+    /*private boolean validar() {
+        boolean retorno = true;
+
+        String usuario1, password, correo1;
+
+        usuario1 = usuarioV.getText().toString();
+        password = pswdsV.getText().toString();
+        correo1 = correoV.getText().toString();
+
+        if(usuario1.isEmpty()){
+            usuarioV.setError("Ingrese su usuario");
+            retorno = false;
+        }else{
+            retorno = true;
+        }
+        if(password.isEmpty()){
+            Etxtpas.setError("Ingrese su contraseña");
+            retorno = false;
+        }else{
+            retorno = true;
+        }if(correo1.isEmpty()){
+            Etxtcorreo.setError("Ingrese su correo");
+            retorno = false;
+        }else {
+            retorno = true;
+        }
+        return retorno;
+    }
+*/
+
 }
