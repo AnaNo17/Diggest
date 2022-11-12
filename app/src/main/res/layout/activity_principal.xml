@@ -196,6 +196,21 @@
         app:layout_constraintTop_toBottomOf="@+id/textView26"
         app:layout_constraintVertical_bias="0.844" />
 
+    <Button
+        android:id="@+id/Contras"
+        android:layout_width="118dp"
+        android:layout_height="53dp"
+        android:layout_marginBottom="28dp"
+        android:backgroundTint="#733248"
+        android:text="Tus Contraseñas"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.945"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView22"
+        app:layout_constraintVertical_bias="0.837" />
+
     <TextView
         android:id="@+id/textUser"
         android:layout_width="wrap_content"

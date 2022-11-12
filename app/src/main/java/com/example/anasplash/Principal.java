@@ -12,7 +12,7 @@ import com.example.anasplash.Json.MyInfo;
 import javax.xml.validation.Validator;
 
 public class Principal extends AppCompatActivity {
-    Button regresor;
+    Button regresor, contras;
     private TextView usuario;
 
 
@@ -25,6 +25,14 @@ public class Principal extends AppCompatActivity {
         Object object = null;
         usuario = findViewById(R.id.textUser);
         Intent intent = getIntent();
+        contras= (Button)findViewById(R.id.Contras);
+        contras.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent contra = new Intent(Principal.this, Contrasenas.class);
+                startActivity(contra);
+            }
+        });
         if( intent != null)
         {
             aux = intent.getStringExtra("usuario" );
@@ -51,5 +59,6 @@ public class Principal extends AppCompatActivity {
                 startActivity(regresador);
             }
         });
+
     }
 }
