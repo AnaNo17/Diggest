@@ -1,6 +1,7 @@
 package com.example.anasplash.Json;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class MyInfo implements Serializable {
     private String usuario;
@@ -8,6 +9,15 @@ public class MyInfo implements Serializable {
     private String correo;
     private String edad;
     private String mascotas;
+    private List<MyData> contras;
+
+    public List<MyData> getContras() {
+        return contras;
+    }
+
+    public void setContras(List<MyData> contras) {
+        this.contras = contras;
+    }
 
     private String getMascotas() {
         return mascotas;

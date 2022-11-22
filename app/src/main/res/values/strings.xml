@@ -5,4 +5,18 @@
     <string name="oklabel">Accesar</string>
     <string name="olvidolabel">Olvide Contraseña</string>
     <string name="registrolabel">Registro</string>
+    <string name="contrase_as">Contraseñas:</string>
+    <string name="agregar">Agregar contraseña</string>
+    <string name="eliminar">Eliminar contraseña</string>
+    <string name="editar">Editar contraseña</string>
+    <string name="contrase_a">Contraseña</string>
+    <string name="nota">Nota: solo se pueden agregar 10 contraseñas máximo</string>
+    <string name="nuevacontra">Ingresa la nueva contraseña</string>
+    <string name="nuevacontra2">Nueva contraseña</string>
+    <string name="red_social">Red social:</string>
+    <string name="nuevacontra3">Agregar</string>
+    <string name="termine_de_eliminar">Terminar</string>
+    <string name="termine_de_editar">Terminar</string>
+    <string name="a">a</string>
+    <string name="olvido_su_contrase_a">Olvido contraseña</string>
 </resources>

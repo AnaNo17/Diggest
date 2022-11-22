@@ -14,6 +14,7 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.anasplash.Json.MyData;
 import com.example.anasplash.Json.MyInfo;
 import com.google.gson.Gson;
 import java.io.File;
@@ -38,7 +39,8 @@ public class Registro extends AppCompatActivity implements View.OnClickListener 
     Switch SwitchM;
     CheckBox Faml;
     String pass, mascotas;
-
+    List<MyData> lista;
+    int []images = { R.drawable.llave,R.drawable.cerrar};
     private static final String TAG = "MainActivity";
     public static final String archivo = "archivo.json";
     private static final char[] HEX_ARRAY = "0123456789ABCDEF".toCharArray();
@@ -84,6 +86,11 @@ public class Registro extends AppCompatActivity implements View.OnClickListener 
         button4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                res = createSha1(String.valueOf(pswd.getText()) + "ola");
+                if (res != null) {
+                    Log.d(TAG, String.format("%s", bytesToHex(res)));
+                    pass = bytesToHex(res);
+                }
 
                 if (sexoB.isChecked()){
                     sexo = "Femenino";
@@ -102,31 +109,32 @@ public class Registro extends AppCompatActivity implements View.OnClickListener 
                 }else{
                     mascotas = "No tiene mascotas";
                 }
-
-                if (usuario.getText().equals("") || pswd.getText().equals("") || mail.getText().equals("")) {
-                    Toast.makeText(getApplicationContext(), "Por favor complete todos los campos", Toast.LENGTH_LONG).show();
-
-                } else {
-                    res = createSha1(String.valueOf(pswd.getText()) + "ola");
-                    if (res != null) {
-                        Log.d(TAG, String.format("%s", bytesToHex(res)));
-                        pass = bytesToHex(res);
+                //aqui lo estoy pegando
+                MyData myData = null;
+                for( int i = 0; i < 3; i++) {
+                    myData = new MyData();
+                    myData.setContra(String.format("Contraseña%d", (int) (Math.random() * 10000)));
+                    if (i == 0) {
+                        myData.setRed(String.format("Facebook"));
+                        myData.setImage(images[0]);
                     }
-                    MyInfo info = new MyInfo();
-                    info.setUsuario(String.valueOf(usuario.getText()));
-                    info.setPassword(pass);
-                    info.setCorreo(String.valueOf(mail.getText()));
+                    lista.add(myData);
+                }
+
+                MyInfo info = new MyInfo();
+                info.setUsuario(String.valueOf(usuario.getText()));
+                info.setPassword(pass);
+                info.setCorreo(String.valueOf(mail.getText()));
 
                     //modificacion
-                    info.setFecha(String.valueOf(fechaR.getText()));
-                    info.setNum(String.valueOf(numeroTel.getText()));
-                    info.setSexo(String.valueOf(sexoB.getText()));
-                    info.setTUsuario(tipoU);
-                    info.setMascotas(mascotas);
-
-                    List2Json(info, list);
-                     }
-                }
+                info.setFecha(String.valueOf(fechaR.getText()));
+                info.setNum(String.valueOf(numeroTel.getText()));
+                info.setSexo(String.valueOf(sexoB.getText()));
+                info.setTUsuario(tipoU);
+                info.setMascotas(mascotas);
+                info.setContras(lista);
+                List2Json(info, list);
+            }
         });
     }
 

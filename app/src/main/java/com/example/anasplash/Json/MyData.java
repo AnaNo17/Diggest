@@ -1,6 +1,9 @@
 package com.example.anasplash.Json;
 
-public class MyData {
+import java.io.Serializable;
+
+public class MyData implements Serializable {
+
     public String getContra() {
         return contra;
     }
